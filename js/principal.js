@@ -1,8 +1,12 @@
 var titulo = document.querySelector(".titulo").textContent = "Aparecida Nutricionista";
 
-var paciente = document.querySelector("#primeiro-paciente");
+var pacientes = document.querySelectorAll(".paciente");
 
-var tdNome = paciente.querySelector(".info-nome").textContent;
+for(var i=0; i< pacientes.length; i++){
+    console.log(pacientes[i]);
+    var paciente = pacientes[i];
+
+    var tdNome = paciente.querySelector(".info-nome").textContent;
 
 var tdPeso = paciente.querySelector(".info-peso").textContent;
 
@@ -26,8 +30,12 @@ if(tdPeso <= 0 || tdPeso >= 1000){
 
  if(pesoEhValido && alturaEhValida){
     var imc = tdPeso/ (tdAltura*tdAltura);
-    tdImc.textContent = imc;
+    tdImc.textContent = imc.toFixed(2);
+ } else{
+     tdImc.textContent = "Altura e/ou peso inválidos"
  }
+}
+
 
 console.log(paciente); // mostra o tr
 console.log(tdNome);
